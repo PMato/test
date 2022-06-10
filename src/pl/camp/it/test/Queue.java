@@ -25,36 +25,34 @@ public class Queue {
     }
 
     public String get() {
-        QueueElement q = QueueElements.get(0);
-        QueueElement q1 = QueueElements.get(1);
-        QueueElement q2 = QueueElements.get(2);
-        if (q.getPriority() > q1.getPriority() && q.getPriority() > q2.getPriority()) {
-            return q.getValue();
+
+        if (QueueElements.get(0).getPriority() > QueueElements.get(1).getPriority() &&
+                QueueElements.get(0).getPriority() > QueueElements.get(2).getPriority()) {
+            return QueueElements.get(0).getValue();
         }
-        if (q1.getPriority() > q.getPriority() && q1.getPriority() > q2.getPriority()) {
-            return q1.getValue();
+        if (QueueElements.get(1).getPriority() > QueueElements.get(0).getPriority() &&
+                QueueElements.get(1).getPriority() > QueueElements.get(2).getPriority()) {
+            return QueueElements.get(1).getValue();
+        } else {
+            return QueueElements.get(2).getValue();
         }
-        if (q2.getPriority() > q1.getPriority() && q2.getPriority() > q.getPriority()) {
-            return q2.getValue();
-        }
-        return "";
     }
 
     public String getHighestPriority() {
-        int priorit = 0;
+        int priority = 0;
 
         for (QueueElement queueElement : this.QueueElements) {
-            if (priorit < queueElement.getPriority()) {
-                priorit = queueElement.getPriority();
+            if (priority < queueElement.getPriority()) {
+                priority = queueElement.getPriority();
             }
         }
         for (QueueElement queueElement1 : this.QueueElements) {
-            if (priorit == queueElement1.getPriority()) {
+            if (priority == queueElement1.getPriority()) {
                 return queueElement1.getValue();
             }
 
         }
-        return "";
+        return "Pusta Kolejka!!!";
     }
 
     public static Queue getInstance() {
