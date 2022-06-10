@@ -1,6 +1,5 @@
 package pl.camp.it.test;
 
-import java.sql.SQLOutput;
 
 public class MainGra {
     public static void main(String[] args) {
